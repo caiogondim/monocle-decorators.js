@@ -1,4 +1,4 @@
-<img src="./docs/icon/banner.png">
+<img src="./docs/icon/banner.svg">
 
 <h1 align="center">sir.js</h1>
 
