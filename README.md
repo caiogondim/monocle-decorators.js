@@ -1,6 +1,6 @@
-<img src="./docs/icon/banner.svg">
+<img src="./docs/icon/banner.png">
 
-<h1 align="center">sir.js</h1>
+<h1 align="center">monocle-decorators.js</h1>
 
 <br>
 
