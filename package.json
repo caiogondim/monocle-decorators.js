@@ -16,7 +16,8 @@
   },
   "scripts": {
     "test": "jest && npm run lint",
-    "lint": "standard --parser babel-eslint 'src/**/*.js' 'test/**/*.js'"
+    "lint": "standard --parser babel-eslint 'src/**/*.js' 'test/**/*.js'",
+    "preversion": "npm run test"
   },
   "repository": {
     "type": "git",
