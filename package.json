@@ -1,5 +1,5 @@
 {
-  "name": "monocle-decorators.js",
+  "name": "monocle-decorators",
   "version": "1.0.1",
   "description": "Classy decorators",
   "main": "src/index.js",
