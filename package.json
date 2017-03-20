@@ -2,7 +2,7 @@
   "name": "monocle-decorators.js",
   "version": "1.0.0",
   "description": "Classy decorators",
-  "main": "index.js",
+  "main": "src/index.js",
   "files": [
     "src/",
     "test/"
