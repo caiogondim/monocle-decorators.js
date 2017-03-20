@@ -1,0 +1,44 @@
+{
+  "name": "monocle-decorators.js",
+  "version": "1.0.0",
+  "description": "Classy decorators",
+  "main": "index.js",
+  "files": [
+    "src/",
+    "test/"
+  ],
+  "dependencies": {
+    "jest": "^19.0.2"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.1.1",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "jest": "^19.0.2",
+    "standard": "^9.0.2"
+  },
+  "scripts": {
+    "test": "jest && npm run lint",
+    "lint": "standard --parser babel-eslint 'src/**/*.js' 'test/**/*.js'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caiogondim/monocle-decorators.js.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/caiogondim/monocle-decorators.js/issues"
+  },
+  "homepage": "https://github.com/caiogondim/monocle-decorators.js#readme",
+  "jest": {
+    "roots": [
+      "test/"
+    ],
+    "testRegex": "test/.*\\.js$",
+    "collectCoverage": true
+  },
+  "standard": {
+    "parser": "babel-eslint"
+  }
+}
