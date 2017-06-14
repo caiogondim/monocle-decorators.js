@@ -11,10 +11,27 @@ import _o from 'monocle-decorators'
 
 class Dummy {
   constructor() {
-    this.count = 1
+    this.count = 0
   }
 
   @_o.bind
+  onTimeout() {
+    this.count += 1
+  }
+}
+```
+
+## `throttle`
+
+```js
+import _o from 'monocle-decorators'
+
+class Dummy {
+  constructor() {
+    this.count = 0
+  }
+
+  @_o.throttle(150)
   onTimeout() {
     this.count += 1
   }
