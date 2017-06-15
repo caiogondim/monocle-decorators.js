@@ -38,6 +38,8 @@ class Dummy {
 }
 ```
 
+To have the same behavior as a hypothetical `@_o.once`, use `@_o.throttle(Infinity)`.
+
 ### Why monocle?
 
 Because you import it as `_o` and use it as `@_o`.
