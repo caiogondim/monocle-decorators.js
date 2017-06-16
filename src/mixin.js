@@ -1,15 +1,27 @@
-function mixin (...classesBase) {
-  return function (classDerived) {
-    classesBase.forEach(classBase => {
-      Object
-        .getOwnPropertyNames(classBase.prototype)
-        .forEach(propertyName => {
-          classDerived.prototype[propertyName] = classBase.prototype[propertyName]
-        })
-    })
+function mixin (derivedClass, baseClasses) {
+  baseClasses.forEach(classBase => {
+    Object
+      .getOwnPropertyNames(classBase.prototype)
+      .forEach(propertyName => {
+        derivedClass.prototype[propertyName] = classBase.prototype[propertyName]
+      })
+  })
 
-    return classDerived
-  }
+  return derivedClass
 }
 
-module.exports = mixin
+function entry (...args) {
+  // Called as decorator
+  if (args.length === 1 && Array.isArray(args[0])) {
+    const [baseClasses] = args
+    return function (derivedClass) {
+      return mixin(derivedClass, baseClasses)
+    }
+  }
+
+  // Called as function
+  const [derivedClass, baseClasses] = args
+  return mixin(derivedClass, baseClasses)
+}
+
+module.exports = entry
