@@ -1,5 +1,6 @@
 module.exports = {
   bind: require('./bind'),
   throttle: require('./throttle'),
-  seal: require('./seal')
+  seal: require('./seal'),
+  freeze: require('./freeze')
 }
