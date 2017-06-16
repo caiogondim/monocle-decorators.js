@@ -1,6 +1,4 @@
-function wasCalledAsFunction (args) {
-  return (typeof args[0] === 'function')
-}
+const wasCalledAsFunction = require('./util/was-called-as-function')
 
 function throttle (fn, wait) {
   let lastCall
