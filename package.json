@@ -23,8 +23,18 @@
     "type": "git",
     "url": "git+https://github.com/caiogondim/monocle-decorators.js.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "decorators",
+    "es7",
+    "ecmascript7",
+    "bind",
+    "debounce",
+    "freeze",
+    "mixin",
+    "seal",
+    "throttle"
+  ],
+  "author": "Caio Gondim",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/caiogondim/monocle-decorators.js/issues"
