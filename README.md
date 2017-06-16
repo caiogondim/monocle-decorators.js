@@ -5,16 +5,16 @@
 <br>
 
 ## Table of contents
-- **For classes**
+- **Decorators for classes**
   - [freeze](#freeze)
   - [mixin](#mixin)
   - [seal](#seal)
-- **For instance methods**
+- **Decorators for instance methods**
   - [bind](#bind)
   - [debounce](#debounce)
   - [throttle](#throttle)
 
-## For classes
+## Decorators for classes
 
 ### `mixin`
 
@@ -123,7 +123,7 @@ const foo = _o.seal({
 foo.c = 3 // throws Error
 ```
 
-## For instance methods
+## Decorators for instance methods
 
 ### `bind`
 
