@@ -1,6 +1,4 @@
-const wasCalledAsFunction = (args) => {
-  return (typeof args[0] === 'function')
-}
+const wasCalledAsFunction = require('./util/was-called-as-function')
 
 function bind (...args) {
   if (wasCalledAsFunction(args)) {
