@@ -75,11 +75,20 @@ foo.distanceFromOrigin // => 15
 
 Freezes every new instance of decorated class.
 
+<!-- Text originally from MDN -->
+
 A frozen object prevents:
 - new properties from being added to it
 - existing properties from being removed
 - existing properties, or their enumerability, configurability, or
   writability, from being changed
+
+> 💡 **Tip**
+>
+> `@_o.seal` and `@_o.freeze` makes it easier to work with objects, since you have
+> to declare beforehand all properties and methods an object has and will have
+> in it's lifecycle, concentrating in one single place the definition of the
+> object structure.
 
 #### As decorator `@_o.freeze`
 
@@ -110,7 +119,10 @@ foo.c = 3 // throws Error
 
 ### `@_o.seal`
 
+
 Seals every new instance of decorated class.
+
+<!-- Text originally from MDN -->
 
 A sealed object prevents:
 - new properties from being added to it
