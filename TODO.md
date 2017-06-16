@@ -12,3 +12,5 @@ Infra
  ☐ bind should work with class as well
 Recipes section mixin decorators
 Dont mutate derived class on mixin
+autobind without second argument on function form
+check delay/ms/wait names in throttle and debounce
