@@ -3,5 +3,6 @@ module.exports = {
   throttle: require('./throttle'),
   debounce: require('./debounce'),
   seal: require('./seal'),
-  freeze: require('./freeze')
+  freeze: require('./freeze'),
+  mixin: require('./mixin')
 }
