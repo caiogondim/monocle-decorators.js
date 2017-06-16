@@ -1,10 +1,10 @@
 const wasCalledAsFunction = require('./util/was-called-as-function')
 
-function throttle (fn, ms) {
+function throttle (fn, wait) {
   let lastCall
 
   return function throttled (...args) {
-    if (!lastCall || (lastCall + ms) <= Date.now()) {
+    if (!lastCall || (lastCall + wait) <= Date.now()) {
       lastCall = Date.now()
       return fn.apply(this, args)
     }
@@ -15,10 +15,10 @@ function entry (...args) {
   if (wasCalledAsFunction(args)) {
     return throttle(...args)
   } else {
-    const [ms] = args
+    const [wait] = args
     return function (...args) {
       const descriptor = args[2]
-      const value = throttle(descriptor.value, ms)
+      const value = throttle(descriptor.value, wait)
 
       return Object.assign({}, descriptor, { value })
     }

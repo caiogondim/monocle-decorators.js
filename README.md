@@ -215,7 +215,7 @@ element.addEventListener('click', obj.handleClick)
 <!-- Text originally from underscore.js -->
 
 Debounces decorated method, which will postpone its execution until after
-`delay` milliseconds have elapsed since the last time it was invoked.
+`wait` milliseconds have elapsed since the last time it was invoked.
 
 > 💡 **Tip**
 >
@@ -223,7 +223,7 @@ Debounces decorated method, which will postpone its execution until after
 > stopped arriving. For example: rendering a preview of a Markdown comment,
 > recalculating a layout after the window has stopped being resized, and so on.
 
-#### As decorator `@_o.debounce(delay)`
+#### As decorator `@_o.debounce(wait)`
 
 ```js
 import _o from 'monocle-decorators'
@@ -236,7 +236,7 @@ class Dummy {
 }
 ```
 
-#### As function `_o.debounce(targetMethod, delay)`
+#### As function `_o.debounce(targetMethod, wait)`
 
 ```js
 import _o from 'monocle-decorators'
@@ -250,13 +250,13 @@ const onScroll = _o.debounce(() => {
 
 <!-- Text originally from underscore.js -->
 
-Throttles decorated method, that, when invoked repeatedly, will only actually call the original function at most once per every `delay` milliseconds.
+Throttles decorated method, that, when invoked repeatedly, will only actually call the original function at most once per every `wait` milliseconds.
 
 > 💡 **Tip**
 >
 > Useful for rate-limiting events that occur faster than you can keep up with.
 
-#### As decorator `@_o.throttle(delay)`
+#### As decorator `@_o.throttle(wait)`
 
 ```js
 import _o from 'monocle-decorators'
@@ -273,7 +273,7 @@ class Dummy {
 >
 > To have the same behavior as a hypothetical `@_o.once`, use `@_o.throttle(Infinity)`.
 
-#### As function `_o.throttle(targetMethod, delay)`
+#### As function `_o.throttle(targetMethod, wait)`
 
 ```js
 import _o from 'monocle-decorators'

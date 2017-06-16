@@ -1,13 +1,13 @@
 const wasCalledAsFunction = require('./util/was-called-as-function')
 
-function debounce (fn, delay) {
+function debounce (fn, wait) {
   let timeout
 
   return function debounced (...args) {
     clearTimeout(timeout)
     timeout = setTimeout(() => {
       fn.apply(this, args)
-    }, delay)
+    }, wait)
   }
 };
 
@@ -15,10 +15,10 @@ function entry (...args) {
   if (wasCalledAsFunction(args)) {
     return debounce(...args)
   } else {
-    const [delay] = args
+    const [wait] = args
     return function (...args) {
       const descriptor = args[2]
-      const value = debounce(descriptor.value, delay)
+      const value = debounce(descriptor.value, wait)
 
       return Object.assign({}, descriptor, { value })
     }

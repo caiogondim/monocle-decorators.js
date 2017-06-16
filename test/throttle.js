@@ -3,13 +3,13 @@
 const _o = require('../src')
 
 it('works as a decorator', (done) => {
-  const ms = 150
+  const wait = 150
   class Dummy {
     constructor () {
       this.count = 0
     }
 
-    @_o.throttle(ms)
+    @_o.throttle(wait)
     incrementCount () {
       this.count += 1
     }
@@ -26,7 +26,7 @@ it('works as a decorator', (done) => {
     foo.incrementCount()
     expect(foo.count).toBe(2)
     done()
-  }, ms)
+  }, wait)
 })
 
 it('works as a function', () => {

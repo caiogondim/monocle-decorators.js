@@ -3,13 +3,13 @@
 const _o = require('../src')
 
 it('works as a decorator', (done) => {
-  const delay = 10
+  const wait = 10
   class Dummy {
     constructor () {
       this.count = 0
     }
 
-    @_o.debounce(delay)
+    @_o.debounce(wait)
     incrementCount () {
       this.count += 1
     }
@@ -30,16 +30,16 @@ it('works as a decorator', (done) => {
       done()
       throw error
     }
-  }, delay)
+  }, wait)
 })
 
 it('works as a function', (done) => {
-  const delay = 10
+  const wait = 10
   let count = 0
   const incrementCount = () => {
     count += 1
   }
-  const incrementCountDebounced = _o.debounce(incrementCount, delay)
+  const incrementCountDebounced = _o.debounce(incrementCount, wait)
 
   incrementCountDebounced()
   incrementCountDebounced()
@@ -55,5 +55,5 @@ it('works as a function', (done) => {
       done()
       throw error
     }
-  }, delay)
+  }, wait)
 })
