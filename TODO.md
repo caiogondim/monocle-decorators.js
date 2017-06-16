@@ -1,16 +1,5 @@
-Decorators
- ☐ mixin
- ☐ throttle
- ☐ debounce
- ✔ freeze @done (17-06-16 11:07)
- ✔ seal @done (17-06-16 11:07)
- ✔ bind @done (17-06-14 18:54)
-
 Infra
- ☐ Spread operator with babel
- ☐ wasCalledAsFunction to `utils/`
+ ✘ autobind without second argument on function form @cancelled (17-06-16 18:06)
+ ☐ Dont mutate derived class on mixin
+ ☐ Mixin should work with objects
  ☐ bind should work with class as well
-Recipes section mixin decorators
-Dont mutate derived class on mixin
-autobind without second argument on function form
-check delay/ms/wait names in throttle and debounce

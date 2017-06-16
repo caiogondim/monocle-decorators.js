@@ -51,9 +51,9 @@ it('works as function', () => {
     }
   }
 
-  const ThingMixed = _o.mixin(Thing, [Crawlable, Walkable, Runnable])
+  _o.mixin(Thing, [Crawlable, Walkable, Runnable])
 
-  const thing = new ThingMixed()
+  const thing = new Thing()
 
   thing
     .crawl()
@@ -62,3 +62,49 @@ it('works as function', () => {
 
   expect(thing.distanceFromOrigin).toBe(16)
 })
+
+it('accepts objects', () => {
+  const crawlable = {
+    crawl () {
+      const speed = 1
+      this.distanceFromOrigin += speed
+      return this
+    }
+  }
+
+  const walkable = {
+    walk () {
+      const speed = 5
+      this.distanceFromOrigin += speed
+      return this
+    }
+  }
+
+  const runnable = {
+    run () {
+      const speed = 10
+      this.distanceFromOrigin += speed
+      return this
+    }
+  }
+
+  @_o.mixin([crawlable, walkable, runnable])
+  class Thing {
+    constructor () {
+      this.distanceFromOrigin = 0
+    }
+  }
+
+  const thing = new Thing()
+
+  thing
+    .crawl()
+    .walk()
+    .run()
+
+  expect(thing.distanceFromOrigin).toBe(16)
+})
+
+// it('accepts objects', () => {
+
+// })

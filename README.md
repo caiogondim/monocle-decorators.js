@@ -21,14 +21,14 @@ but with class.
 
 ### `@_o.mixin`
 
-Extends decorated class with all enumerable properties from `ArrayOfClasses`
+Extends decorated class with all enumerable properties from `ArrayOfMixins`
 passed as argument.
 
 > 💡 **Tip**
 >
 > Prefer composability over inheritance.
 
-#### As decorator `@_o.mixin(ArrayOfClasses)`
+#### As decorator `@_o.mixin(ArrayOfMixins)`
 
 ```js
 import _o from 'monocle-decorators'
@@ -60,12 +60,48 @@ foo.run() // method from Runnable class
 foo.distanceFromOrigin // => 15
 ```
 
-#### As function `_o.mixin(TargetClass, ArrayOfClasses)`
+> 💡 **Tip**
+>
+> Array of mixins can also be an array of objects, if you don't feel classy.
 
 ```js
-const ThingMixed = _o.mixin(Thing, [Walkable, Runnable])
+import _o from 'monocle-decorators'
 
-const foo = new ThingMixed()
+const walkable = {
+  walk() {
+    const speed = 5
+    this.distanceFromOrigin += speed
+  }
+}
+
+const runnable = {
+  run() {
+    const speed = 10
+    this.distanceFromOrigin += speed
+  }
+}
+
+@_o.mixin([walkable, runnable])
+class Thing {
+  constructor() {
+    this.distanceFromOrigin = 0
+  }
+}
+
+const foo = new Thing()
+foo.walk() // method from Walkable class
+foo.run() // method from Runnable class
+foo.distanceFromOrigin // => 15
+```
+
+#### As function `_o.mixin(TargetClass, ArrayOfMixins)`
+
+```js
+import _o from 'monocle-decorators'
+
+_o.mixin(Thing, [Walkable, Runnable])
+
+const foo = new Thing()
 foo.walk() // method from Walkable class
 foo.run() // method from Runnable class
 foo.distanceFromOrigin // => 15
