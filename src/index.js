@@ -1,3 +1,5 @@
 module.exports = {
-  bind: require('./bind')
+  bind: require('./bind'),
+  throttle: require('./throttle'),
+  seal: require('./seal')
 }
