@@ -125,10 +125,10 @@ A frozen object prevents:
 
 > 💡 **Tip**
 >
-> `@_o.seal` and `@_o.freeze` makes it easier to work with objects, since you have
-> to declare beforehand all properties and methods an object has and will have
-> in it's lifecycle, concentrating in one single place the definition of the
-> object structure.
+> `@_o.seal` and `@_o.freeze` makes it easier to work with objects, since you
+> have to declare beforehand all properties and methods an object has and will
+> have in it's lifecycle, concentrating in one single place the definition of
+> the object structure.
 
 #### As decorator `@_o.freeze`
 
@@ -172,10 +172,10 @@ Values of present properties can still be changed as long as they are writable.
 
 > 💡 **Tip**
 >
-> `@_o.seal` and `@_o.freeze` makes it easier to work with objects, since you have
-> to declare beforehand all properties and methods an object has and will have
-> in it's lifecycle, concentrating in one single place the definition of the
-> object structure.
+> `@_o.seal` and `@_o.freeze` makes it easier to work with objects, since you
+> have to declare beforehand all properties and methods an object has and will
+> have in it's lifecycle, concentrating in one single place the definition of
+> the object structure.
 
 #### As decorator `@_o.seal`
 
@@ -290,7 +290,8 @@ const onScroll = _o.debounce(() => {
 
 <!-- Text originally from underscore.js -->
 
-Throttles decorated method, that, when invoked repeatedly, will only actually call the original function at most once per every `wait` milliseconds.
+Throttles decorated method, that, when invoked repeatedly, will only actually
+call the original function at most once per every `wait` milliseconds.
 
 > 💡 **Tip**
 >
@@ -311,7 +312,8 @@ class Dummy {
 
 > 💡 **Tip**
 >
-> To have the same behavior as a hypothetical `@_o.once`, use `@_o.throttle(Infinity)`.
+> To have the same behavior as a hypothetical `@_o.once`,
+> use `@_o.throttle(Infinity)`.
 
 #### As function `_o.throttle(targetMethod, wait)`
 
@@ -333,8 +335,8 @@ Classy decorators.
 
 ## Sponsor
 
-If you found this library useful and are willing to donate, consider transfering
-some bitcoins to `1BqqKiZA8Tq43CdukdBEwCdDD42jxuX9UY`.
+If you found this library useful and are willing to donate, consider
+transferring some bitcoins to `1BqqKiZA8Tq43CdukdBEwCdDD42jxuX9UY`.
 
 ---
 
