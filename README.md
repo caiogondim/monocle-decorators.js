@@ -8,8 +8,8 @@
 
 <br>
 
-Tiny library with most common/useful decorators. Think of it as underscore.js,
-but with class.
+Tiny library with most common/useful decorators. Think of it as
+[underscore.js](http://underscorejs.org/), but with class.
 
 ## Table of contents
 - **Decorators for classes**
