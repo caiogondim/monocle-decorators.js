@@ -1,4 +1,4 @@
-<img src="./docs/icon/banner.png">
+<img src="./logo/banner.png">
 
 <h1 align="center">monocle-decorators.js</h1>
 
