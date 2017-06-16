@@ -10,3 +10,5 @@ Infra
  ☐ Spread operator with babel
  ☐ wasCalledAsFunction to `utils/`
  ☐ bind should work with class as well
+Recipes section mixin decorators
+Dont mutate derived class on mixin
