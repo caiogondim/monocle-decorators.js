@@ -105,6 +105,20 @@ it('accepts objects', () => {
   expect(thing.distanceFromOrigin).toBe(16)
 })
 
-// it('accepts objects', () => {
+it('accepts classes', () => {
+  @_o.mixin([Crawlable, Walkable, Runnable])
+  class Thing {
+    constructor () {
+      this.distanceFromOrigin = 0
+    }
+  }
 
-// })
+  const thing = new Thing()
+
+  thing
+    .crawl()
+    .walk()
+    .run()
+
+  expect(thing.distanceFromOrigin).toBe(16)
+})
