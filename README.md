@@ -21,6 +21,12 @@ Tiny library with most common/useful decorators. Think of it as
   - [debounce](#debounce)
   - [throttle](#throttle)
 
+## Installation
+
+```bash
+npm install monocle-decorators --save
+```
+
 ## Decorators for classes
 
 ### `@_o.mixin`
