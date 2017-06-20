@@ -23,7 +23,7 @@
     "test": "jest && npm run lint",
     "lint": "standard --fix --parser babel-eslint 'src/**/*.js' 'test/**/*.js'",
     "preversion": "npm run test",
-    "build": "webpack -p"
+    "build": "webpack --display-optimization-bailout -p"
   },
   "repository": {
     "type": "git",
