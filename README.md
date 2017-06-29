@@ -3,7 +3,7 @@
 <h1 align="center">monocle-decorators.js</h1>
 
 <div align="center">
-  <img src="https://travis-ci.com/caiogondim/monocle-decorators.js.svg?token=rC867oquXMnLzSZmNcfx&branch=master" alt="Travis CI"> <img src="http://img.badgesize.io/caiogondim/monocle-decorators.js/master/dist/monocle-decorators.js?compression=gzip" alt="File size"> <img src="https://coveralls.io/repos/github/caiogondim/monocle-decorators.js/badge.svg?branch=master" alt="Code coverage">
+  <img src="https://travis-ci.com/caiogondim/monocle-decorators.js.svg?token=rC867oquXMnLzSZmNcfx&branch=master" alt="Travis CI"> <img src="http://img.badgesize.io/caiogondim/monocle-decorators.js/master/dist/monocle-decorators.js?compression=gzip" alt="File size"> <img src="https://coveralls.io/repos/github/caiogondim/monocle-decorators.js/badge.svg?branch=master" alt="Code coverage"> <a href="https://www.npmjs.com/package/monocle-decorators"><img src="https://img.shields.io/npm/v/monocle-decorators.svg" /></a>
 </div>
 
 <br>
