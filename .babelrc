@@ -1,3 +1,6 @@
 {
-  "plugins": ["transform-decorators-legacy"]
+  "plugins": [
+    "transform-decorators-legacy",
+    "transform-object-assign"
+  ]
 }
