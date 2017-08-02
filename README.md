@@ -13,13 +13,13 @@ Tiny library with most common/useful decorators. Think of it as
 
 ## Table of contents
 - **Decorators for classes**
-  - [freeze](#freeze)
-  - [mixin](#mixin)
-  - [seal](#seal)
+  - [freeze](#_ofreeze)
+  - [mixin](#_omixin)
+  - [seal](#_oseal)
 - **Decorators for instance methods**
-  - [bind](#bind)
-  - [debounce](#debounce)
-  - [throttle](#throttle)
+  - [bind](#_obind)
+  - [debounce](#_odebounce)
+  - [throttle](#_othrottle)
 
 ## Installation
 
