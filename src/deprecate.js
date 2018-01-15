@@ -10,7 +10,7 @@ function getDefaultMsg (target, key) {
 
 function functionApi (target, key, msg, { logger } = {}) {
   msg = msg || getDefaultMsg(target, key)
-  logger = logger || console.log.bind(console)
+  logger = logger || console.warn.bind(console)
 
   if (!Proxy) {
     logger('Current env doesn\'t support Proxy API.')
@@ -33,7 +33,7 @@ function functionApi (target, key, msg, { logger } = {}) {
 function decoratorApi (msg, { logger } = {}) {
   return function (target, key, descriptor) {
     msg = msg || getDefaultMsg(target, key)
-    logger = logger || console.log.bind(console)
+    logger = logger || console.warn.bind(console)
 
     if (!Proxy) {
       logger('Current env doesn\'t support Proxy API.')

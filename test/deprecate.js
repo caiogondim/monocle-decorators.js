@@ -3,7 +3,7 @@
 const _o = require('../src')
 
 beforeEach(() => {
-  global.console.log = jest.fn()
+  global.console.warn = jest.fn()
 })
 
 describe('decorator API', () => {
@@ -15,7 +15,7 @@ describe('decorator API', () => {
     }
 
     expect(dummyObj.b).toEqual(2)
-    expect(console.log).toHaveBeenCalled()
+    expect(console.warn).toHaveBeenCalled()
   })
 
   it('works with functions', () => {
@@ -29,7 +29,7 @@ describe('decorator API', () => {
 
     dummyObj.b()
 
-    expect(console.log).toHaveBeenCalled()
+    expect(console.warn).toHaveBeenCalled()
     expect(dummyObj.a).toEqual(2)
   })
 
@@ -43,7 +43,7 @@ describe('decorator API', () => {
     }
 
     expect(dummyObj.b.c).toEqual(2)
-    expect(console.log).toHaveBeenCalled()
+    expect(console.warn).toHaveBeenCalled()
   })
 
   it('accepts custom message', () => {
@@ -55,7 +55,7 @@ describe('decorator API', () => {
     }
 
     expect(dummyObj.b).toEqual(2)
-    expect(console.log).toHaveBeenCalledWith(msg)
+    expect(console.warn).toHaveBeenCalledWith(msg)
   })
 
   it('accepts custom logger', () => {
@@ -81,7 +81,7 @@ describe('decorator API', () => {
     }
 
     expect(dummyObj.b).toEqual(2)
-    expect(console.log).toHaveBeenCalledWith('Current env doesn\'t support Proxy API.')
+    expect(console.warn).toHaveBeenCalledWith('Current env doesn\'t support Proxy API.')
 
     global.Proxy = proxyRef
   })
@@ -96,7 +96,7 @@ describe('function API', () => {
     dummyObj = _o.deprecate(dummyObj, 'b')
 
     expect(dummyObj.b).toEqual(2)
-    expect(console.log).toHaveBeenCalled()
+    expect(console.warn).toHaveBeenCalled()
   })
 
   it('works with functions', () => {
@@ -110,7 +110,7 @@ describe('function API', () => {
 
     dummyObj.b()
 
-    expect(console.log).toHaveBeenCalled()
+    expect(console.warn).toHaveBeenCalled()
     expect(dummyObj.a).toEqual(2)
   })
 
@@ -124,7 +124,7 @@ describe('function API', () => {
     dummyObj = _o.deprecate(dummyObj, 'b')
 
     expect(dummyObj.b.c).toEqual(2)
-    expect(console.log).toHaveBeenCalled()
+    expect(console.warn).toHaveBeenCalled()
   })
 
   it('accepts custom message', () => {
@@ -135,7 +135,7 @@ describe('function API', () => {
     }, 'b', msg)
 
     expect(dummyObj.b).toEqual(2)
-    expect(console.log).toHaveBeenCalledWith(msg)
+    expect(console.warn).toHaveBeenCalledWith(msg)
   })
 
   it('accepts custom logger', () => {
@@ -159,7 +159,7 @@ describe('function API', () => {
     }, 'b')
 
     expect(dummyObj.b).toEqual(2)
-    expect(console.log).toHaveBeenCalledWith('Current env doesn\'t support Proxy API.')
+    expect(console.warn).toHaveBeenCalledWith('Current env doesn\'t support Proxy API.')
 
     global.Proxy = proxyRef
   })
