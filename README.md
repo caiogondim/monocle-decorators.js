@@ -333,7 +333,9 @@ const onScroll = _o.throttle(() => {
 
 ### `@_o.deprecated`
 
-Calls `opts.logger` with `opts.msg` as depreciation message. It uses Proxy API and works for every key in a given object. Case Proxy API is not available, it returns the object undecorated.
+Calls `opts.logger` with `opts.msg` as depreciation message.
+
+It uses Proxy API and works for every key in a given object. Case Proxy API is not available, it returns the object undecorated.
 
 By default `opts.logger` is `console.warn` and `opts.msg` is `${target.constructor.name}.${key} is deprecated.`. Both are optional.
 
