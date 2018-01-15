@@ -333,13 +333,13 @@ const onScroll = _o.throttle(() => {
 
 ### `@_o.deprecate`
 
-Calls `opts.logger` with `opts.msg` as depreciation message.
+Calls `opts.logger` with `msg` as depreciation message.
 
 It uses Proxy API and works for every key in a given object. Case Proxy API is not available, it returns the object undecorated.
 
-By default `opts.logger` is `console.warn` and `opts.msg` is `${target.constructor.name}.${key} is deprecated.`. Both are optional.
+By default `opts.logger` is `console.warn` and `msg` is `${target.constructor.name}.${key} is deprecated.`. Both are optional.
 
-#### As decorator `@_o.deprecate({ msg, logger })`
+#### As decorator `@_o.deprecate(msg, { logger })`
 
 ```js
 import _o from 'monocle-decorators'
@@ -349,14 +349,14 @@ class Dummy {
     // ...
   }
 
-  @_o.deprecate()
+  @_o.deprecate('`dummy.b` is deprecated. Use `dummy.a`')
   b() {
     // ...
   }
 }
 ```
 
-#### As function `_o.deprecate(target, key, { msg, logger })`
+#### As function `_o.deprecate(target, key, msg, { logger })`
 
 ```js
 import _o from 'monocle-decorators'
@@ -364,7 +364,7 @@ import _o from 'monocle-decorators'
 const dummy = _o.deprecate({
   a() {},
   b() {}
-}, 'b', { msg: 'dummy.b is deprecate' })
+}, 'b', '`dummy.b` is deprecated. Use `dummy.a`')
 ```
 
 ### Why monocle?

@@ -8,7 +8,7 @@ function getDefaultMsg (target, key) {
   return `\`${target.constructor.name}.${key}\` is deprecated.`
 }
 
-function functionApi (target, key, { msg, logger } = {}) {
+function functionApi (target, key, msg, { logger } = {}) {
   msg = msg || getDefaultMsg(target, key)
   logger = logger || console.log.bind(console)
 
@@ -30,7 +30,7 @@ function functionApi (target, key, { msg, logger } = {}) {
   return proxy
 }
 
-function decoratorApi ({ msg, logger } = {}) {
+function decoratorApi (msg, { logger } = {}) {
   return function (target, key, descriptor) {
     msg = msg || getDefaultMsg(target, key)
     logger = logger || console.log.bind(console)

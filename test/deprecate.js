@@ -50,7 +50,7 @@ describe('decorator API', () => {
     const msg = 'lorem ipsum'
     let dummyObj = {
       a: 1,
-      @_o.deprecate({ msg })
+      @_o.deprecate(msg)
       b: 2
     }
 
@@ -62,7 +62,7 @@ describe('decorator API', () => {
     const logger = jest.fn()
     let dummyObj = {
       a: 1,
-      @_o.deprecate({ logger })
+      @_o.deprecate(undefined, { logger })
       b: 2
     }
 
@@ -132,7 +132,7 @@ describe('function API', () => {
     const dummyObj = _o.deprecate({
       a: 1,
       b: 2
-    }, 'b', { msg })
+    }, 'b', msg)
 
     expect(dummyObj.b).toEqual(2)
     expect(console.log).toHaveBeenCalledWith(msg)
@@ -143,7 +143,7 @@ describe('function API', () => {
     const dummyObj = _o.deprecate({
       a: 1,
       b: 2
-    }, 'b', { logger })
+    }, 'b', undefined, { logger })
 
     expect(dummyObj.b).toEqual(2)
     expect(logger).toHaveBeenCalled()
