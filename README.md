@@ -16,10 +16,11 @@ Tiny library with most common/useful decorators. Think of it as
   - [freeze](#_ofreeze)
   - [mixin](#_omixin)
   - [seal](#_oseal)
-- **Decorators for instance methods**
+- **Decorators for instance methods/properties**
   - [bind](#_obind)
   - [debounce](#_odebounce)
   - [throttle](#_othrottle)
+  - [deprecated](#_odeprecated)
 
 ## Installation
 
@@ -165,7 +166,6 @@ foo.c = 3 // throws Error
 
 ### `@_o.seal`
 
-
 Seals every new instance of decorated class.
 
 <!-- Text originally from MDN -->
@@ -209,7 +209,7 @@ const DummySealed = _o.seal(Dummy)
 foo.c = 3 // throws Error
 ```
 
-## Decorators for instance methods
+## Decorators for instance methods/properties
 
 ### `@_o.bind`
 
@@ -329,6 +329,40 @@ import _o from 'monocle-decorators'
 const onScroll = _o.throttle(() => {
   // ...
 }, 150)
+```
+
+### `@_o.deprecated`
+
+Calls `opts.logger` with `opts.msg` as depreciation message. It uses Proxy API and works for every key in a given object. Case Proxy API is not available, it returns the object undecorated.
+
+By default `opts.logger` is `console.warn` and `opts.msg` is `${target.constructor.name}.${key} is deprecated.`. Both are optional.
+
+#### As decorator `@_o.deprecated({ msg, logger })`
+
+```js
+import _o from 'monocle-decorators'
+
+class Dummy {
+  a() {
+    // ...
+  }
+
+  @_o.deprecated()
+  b() {
+    // ...
+  }
+}
+```
+
+#### As function `_o.throttle(targetMethod, wait)`
+
+```js
+import _o from 'monocle-decorators'
+
+const dummy = _o.deprecated({
+  a() {},
+  b() {}
+}, 'b', { msg: 'dummy.b is deprecated' })
 ```
 
 ### Why monocle?
