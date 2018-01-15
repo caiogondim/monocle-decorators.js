@@ -331,7 +331,7 @@ const onScroll = _o.throttle(() => {
 }, 150)
 ```
 
-### `@_o.deprecated`
+### `@_o.deprecate`
 
 Calls `opts.logger` with `opts.msg` as depreciation message.
 
@@ -339,7 +339,7 @@ It uses Proxy API and works for every key in a given object. Case Proxy API is n
 
 By default `opts.logger` is `console.warn` and `opts.msg` is `${target.constructor.name}.${key} is deprecated.`. Both are optional.
 
-#### As decorator `@_o.deprecated({ msg, logger })`
+#### As decorator `@_o.deprecate({ msg, logger })`
 
 ```js
 import _o from 'monocle-decorators'
@@ -349,22 +349,22 @@ class Dummy {
     // ...
   }
 
-  @_o.deprecated()
+  @_o.deprecate()
   b() {
     // ...
   }
 }
 ```
 
-#### As function `_o.deprecated(target, key, { msg, logger })`
+#### As function `_o.deprecate(target, key, { msg, logger })`
 
 ```js
 import _o from 'monocle-decorators'
 
-const dummy = _o.deprecated({
+const dummy = _o.deprecate({
   a() {},
   b() {}
-}, 'b', { msg: 'dummy.b is deprecated' })
+}, 'b', { msg: 'dummy.b is deprecate' })
 ```
 
 ### Why monocle?

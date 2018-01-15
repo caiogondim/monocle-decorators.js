@@ -1,7 +1,7 @@
 module.exports = {
   bind: require('./bind'),
   debounce: require('./debounce'),
-  deprecated: require('./deprecated'),
+  deprecate: require('./deprecate'),
   freeze: require('./freeze'),
   mixin: require('./mixin'),
   seal: require('./seal'),

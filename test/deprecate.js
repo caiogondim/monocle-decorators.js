@@ -10,7 +10,7 @@ describe('decorator API', () => {
   it('works with literals', () => {
     let dummyObj = {
       a: 1,
-      @_o.deprecated()
+      @_o.deprecate()
       b: 2
     }
 
@@ -21,7 +21,7 @@ describe('decorator API', () => {
   it('works with functions', () => {
     const dummyObj = {
       a: 1,
-      @_o.deprecated()
+      @_o.deprecate()
       b () {
         this.a += 1
       }
@@ -36,7 +36,7 @@ describe('decorator API', () => {
   it('works with nested objects', () => {
     let dummyObj = {
       a: 1,
-      @_o.deprecated()
+      @_o.deprecate()
       b: {
         c: 2
       }
@@ -50,7 +50,7 @@ describe('decorator API', () => {
     const msg = 'lorem ipsum'
     let dummyObj = {
       a: 1,
-      @_o.deprecated({ msg })
+      @_o.deprecate({ msg })
       b: 2
     }
 
@@ -62,7 +62,7 @@ describe('decorator API', () => {
     const logger = jest.fn()
     let dummyObj = {
       a: 1,
-      @_o.deprecated({ logger })
+      @_o.deprecate({ logger })
       b: 2
     }
 
@@ -76,7 +76,7 @@ describe('decorator API', () => {
 
     const dummyObj = {
       a: 1,
-      @_o.deprecated()
+      @_o.deprecate()
       b: 2
     }
 
@@ -93,7 +93,7 @@ describe('function API', () => {
       a: 1,
       b: 2
     }
-    dummyObj = _o.deprecated(dummyObj, 'b')
+    dummyObj = _o.deprecate(dummyObj, 'b')
 
     expect(dummyObj.b).toEqual(2)
     expect(console.log).toHaveBeenCalled()
@@ -106,7 +106,7 @@ describe('function API', () => {
         this.a += 1
       }
     }
-    dummyObj = _o.deprecated(dummyObj, 'b')
+    dummyObj = _o.deprecate(dummyObj, 'b')
 
     dummyObj.b()
 
@@ -121,7 +121,7 @@ describe('function API', () => {
         c: 2
       }
     }
-    dummyObj = _o.deprecated(dummyObj, 'b')
+    dummyObj = _o.deprecate(dummyObj, 'b')
 
     expect(dummyObj.b.c).toEqual(2)
     expect(console.log).toHaveBeenCalled()
@@ -129,7 +129,7 @@ describe('function API', () => {
 
   it('accepts custom message', () => {
     const msg = 'lorem ipsum'
-    const dummyObj = _o.deprecated({
+    const dummyObj = _o.deprecate({
       a: 1,
       b: 2
     }, 'b', { msg })
@@ -140,7 +140,7 @@ describe('function API', () => {
 
   it('accepts custom logger', () => {
     const logger = jest.fn()
-    const dummyObj = _o.deprecated({
+    const dummyObj = _o.deprecate({
       a: 1,
       b: 2
     }, 'b', { logger })
@@ -153,7 +153,7 @@ describe('function API', () => {
     const proxyRef = global.Proxy
     global.Proxy = undefined
 
-    const dummyObj = _o.deprecated({
+    const dummyObj = _o.deprecate({
       a: 1,
       b: 2
     }, 'b')
