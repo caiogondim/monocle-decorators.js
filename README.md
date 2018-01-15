@@ -356,7 +356,7 @@ class Dummy {
 }
 ```
 
-#### As function `_o.throttle(targetMethod, wait)`
+#### As function `_o.deprecated(target, key, { msg, logger })`
 
 ```js
 import _o from 'monocle-decorators'
