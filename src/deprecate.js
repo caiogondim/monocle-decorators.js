@@ -12,42 +12,54 @@ function functionApi (target, key, msg, { logger } = {}) {
   msg = msg || getDefaultMsg(target, key)
   logger = logger || console.warn.bind(console)
 
-  if (!Proxy) {
-    logger('Current env doesn\'t support Proxy API.')
-    return target
+  const descriptor = Object.getOwnPropertyDescriptor(target, key)
+
+  const value = descriptor.value
+  const getter = descriptor.get
+
+  descriptor.get = function () {
+    logger(msg)
+    return (
+      (getter && getter.call(this)) ||
+      value
+    )
   }
 
-  const proxy = new Proxy(target, {
-    get (target_, key_) {
-      if (key_ === key) {
-        logger(msg)
-      }
+  // Can't have accessors (get/set) and value/writable on descriptor at same time.
+  delete descriptor.value
+  delete descriptor.writable
 
-      return target_[key_]
-    }
-  })
-
-  return proxy
+  return Object.defineProperty(target, key, descriptor)
 }
 
 function decoratorApi (msg, { logger } = {}) {
+  logger = logger || console.warn.bind(console)
+
   return function (target, key, descriptor) {
     msg = msg || getDefaultMsg(target, key)
-    logger = logger || console.warn.bind(console)
 
-    if (!Proxy) {
-      logger('Current env doesn\'t support Proxy API.')
-      return descriptor
+    // Properties have an `initializer` function on descriptor. Methods don't.
+    const value = (
+      (descriptor.initializer && descriptor.initializer()) ||
+      descriptor.value
+    )
+
+    const getter = descriptor.get
+
+    descriptor.get = function () {
+      logger(msg)
+      return (
+        (getter && getter.call(this)) ||
+        value
+      )
     }
 
-    const proxy = new Proxy(target, {
-      get (target, key) {
-        logger(msg)
-        return target[key]
-      }
-    })
+    // Can't have accessors (get/set) and value/writable on descriptor at same time.
+    delete descriptor.initializer
+    delete descriptor.value
+    delete descriptor.writable
 
-    return proxy
+    return descriptor
   }
 }
 

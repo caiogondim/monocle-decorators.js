@@ -46,6 +46,25 @@ describe('decorator API', () => {
     expect(console.warn).toHaveBeenCalled()
   })
 
+  it('works with get/set', () => {
+    let b = 2
+    let dummyObj = {
+      a: 1,
+      @_o.deprecate()
+      get b () {
+        return b
+      },
+      set b (val) {
+        b = val
+      }
+    }
+
+    expect(dummyObj.b).toEqual(2)
+    expect(console.warn).toHaveBeenCalled()
+    dummyObj.b = 3
+    expect(dummyObj.b).toEqual(3)
+  })
+
   it('accepts custom message', () => {
     const msg = 'lorem ipsum'
     let dummyObj = {
@@ -68,22 +87,6 @@ describe('decorator API', () => {
 
     expect(dummyObj.b).toEqual(2)
     expect(logger).toHaveBeenCalled()
-  })
-
-  it('doesnt work if no Proxy API', () => {
-    const proxyRef = global.Proxy
-    global.Proxy = undefined
-
-    const dummyObj = {
-      a: 1,
-      @_o.deprecate()
-      b: 2
-    }
-
-    expect(dummyObj.b).toEqual(2)
-    expect(console.warn).toHaveBeenCalledWith('Current env doesn\'t support Proxy API.')
-
-    global.Proxy = proxyRef
   })
 })
 
@@ -127,6 +130,24 @@ describe('function API', () => {
     expect(console.warn).toHaveBeenCalled()
   })
 
+  it('works with get/set', () => {
+    let b = 2
+    let dummyObj = _o.deprecate({
+      a: 1,
+      get b () {
+        return b
+      },
+      set b (val) {
+        b = val
+      }
+    }, 'b')
+
+    expect(dummyObj.b).toEqual(2)
+    expect(console.warn).toHaveBeenCalled()
+    dummyObj.b = 3
+    expect(dummyObj.b).toEqual(3)
+  })
+
   it('accepts custom message', () => {
     const msg = 'lorem ipsum'
     const dummyObj = _o.deprecate({
@@ -147,20 +168,5 @@ describe('function API', () => {
 
     expect(dummyObj.b).toEqual(2)
     expect(logger).toHaveBeenCalled()
-  })
-
-  it('doesnt work if no Proxy API', () => {
-    const proxyRef = global.Proxy
-    global.Proxy = undefined
-
-    const dummyObj = _o.deprecate({
-      a: 1,
-      b: 2
-    }, 'b')
-
-    expect(dummyObj.b).toEqual(2)
-    expect(console.warn).toHaveBeenCalledWith('Current env doesn\'t support Proxy API.')
-
-    global.Proxy = proxyRef
   })
 })
