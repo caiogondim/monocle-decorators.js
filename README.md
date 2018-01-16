@@ -334,7 +334,6 @@ const onScroll = _o.throttle(() => {
 ### `@_o.deprecate`
 
 Calls `opts.logger` with `msg` as depreciation message.
-
 By default `opts.logger` is `console.warn` and `msg` is `${target.constructor.name}.${key} is deprecated.`. Both are optional.
 
 #### As decorator `@_o.deprecate(msg, { logger })`
