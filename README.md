@@ -20,7 +20,7 @@ Tiny library with most common/useful decorators. Think of it as
   - [bind](#_obind)
   - [debounce](#_odebounce)
   - [throttle](#_othrottle)
-  - [deprecated](#_odeprecated)
+  - [deprecate](#_odeprecate)
 
 ## Installation
 
