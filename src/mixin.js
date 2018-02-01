@@ -6,7 +6,11 @@ function mixin (derivedClass, mixins) {
       Object
         .getOwnPropertyNames(classBase.prototype)
         .forEach(propertyName => {
-          derivedClass.prototype[propertyName] = classBase.prototype[propertyName]
+          Object.defineProperty(
+            derivedClass.prototype,
+            propertyName,
+            Object.getOwnPropertyDescriptor(classBase.prototype, propertyName)
+          )
         })
     })
 
@@ -17,7 +21,11 @@ function mixin (derivedClass, mixins) {
       Object
         .getOwnPropertyNames(objectBase)
         .forEach(propertyName => {
-          derivedClass.prototype[propertyName] = objectBase[propertyName]
+          Object.defineProperty(
+            derivedClass.prototype,
+            propertyName,
+            Object.getOwnPropertyDescriptor(objectBase, propertyName)
+          )
         })
     })
 
