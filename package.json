@@ -1,6 +1,6 @@
 {
   "name": "monocle-decorators",
-  "version": "2.1.5",
+  "version": "2.1.6",
   "description": "Classy decorators",
   "main": "src/index.js",
   "files": [
