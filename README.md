@@ -1,4 +1,4 @@
-<img src="http://rawgit.com/caiogondim/monocle-decorators.js/master/logo/icon.svg">
+<img src="http://rawgit.com/caiogondim/monocle-decorators.js/master/logo/banner.svg">
 
 <h1>monocle-decorators</h1>
 
